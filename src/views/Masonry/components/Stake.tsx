@@ -59,7 +59,7 @@ const Stake: React.FC = () => {
         onStake(value);
         onDismissDeposit();
       }}
-      tokenName={'TShare'}
+      tokenName={'3Shares'}
     />,
   );
 
@@ -70,7 +70,7 @@ const Stake: React.FC = () => {
         onWithdraw(value);
         onDismissWithdraw();
       }}
-      tokenName={'TShare'}
+      tokenName={'3Shares'}
     />,
   );
 
