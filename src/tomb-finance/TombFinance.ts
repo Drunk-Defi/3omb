@@ -104,6 +104,7 @@ export class TombFinance {
       .sub(tombRewardPoolSupply2)
       .sub(tombRewardPoolSupplyOld);
     const priceInFTM = await this.getTokenPriceFromPancakeswap(this.TOMB);
+    console.log("price in ftm:", priceInFTM)
     const priceOfOneFTM = await this.getWFTMPriceFromPancakeswap();
     const priceOfTombInDollars = (Number(priceInFTM) * Number(priceOfOneFTM)).toFixed(2);
 
@@ -133,7 +134,7 @@ export class TombFinance {
     const ftmAmount = getDisplayBalance(ftmAmountBN, 18);
     const tokenAmountInOneLP = Number(tokenAmount) / Number(lpTokenSupply);
     const ftmAmountInOneLP = Number(ftmAmount) / Number(lpTokenSupply);
-    const lpTokenPrice = await this.getLPTokenPrice(lpToken, token0, isTomb);
+    const lpTokenPrice = await this.getLPTokenPrice(lpToken, token0, isTomb, false);
     const lpTokenPriceFixed = Number(lpTokenPrice).toFixed(2).toString();
     const liquidity = (Number(lpTokenSupply) * Number(lpTokenPrice)).toFixed(2).toString();
     return {
@@ -323,13 +324,13 @@ export class TombFinance {
     } else {
       console.log("token name:", tokenName)
       if (tokenName === '3OMB-WFTM LP') {
-        tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true);
+        tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
       } else if (tokenName === '3SHARE-WFTM-LP') {
-        tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false);
+        tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "2SHARES-WFTM LP") {
-        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false);
+        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false, true);
       } else if (tokenName === "2OMB-WFTM LP") {
-        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "2OMB"), true);
+        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "2OMB"), true, true);
       } else if (tokenName === 'BLOOM') {
         tokenPrice = await this.getTokenPriceFromSpiritswap(token);
       } else if (tokenName === "BELUGA") {
@@ -405,11 +406,11 @@ export class TombFinance {
    * @param isTomb sanity check for usage of tomb token or tShare
    * @returns price of the LP token
    */
-  async getLPTokenPrice(lpToken: ERC20, token: ERC20, isTomb: boolean): Promise<string> {
+  async getLPTokenPrice(lpToken: ERC20, token: ERC20, isTomb: boolean, isFake: boolean): Promise<string> {
     const totalSupply = getFullDisplayBalance(await lpToken.totalSupply(), lpToken.decimal);
     //Get amount of tokenA
     const tokenSupply = getFullDisplayBalance(await token.balanceOf(lpToken.address), token.decimal);
-    const stat = isTomb === true ? await this.getTombStatFake() : await this.getShareStatFake();
+    const stat = isFake === true ? isTomb === true ? await this.getTombStatFake() : await this.getShareStatFake() : isTomb === true ? await this.getTombStat() : await this.getShareStat();
     const priceOfToken = stat.priceInDollars;
     const tokenInLP = Number(tokenSupply) / Number(totalSupply);
     const tokenPrice = (Number(priceOfToken) * tokenInLP * 2) //We multiply by 2 since half the price of the lp token is the price of each piece of the pair. So twice gives the total
