@@ -325,7 +325,7 @@ export class TombFinance {
       console.log("token name:", tokenName)
       if (tokenName === '3OMB-WFTM LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
-      } else if (tokenName === '3SHARE-WFTM-LP') {
+      } else if (tokenName === '3SHARES-WFTM LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "2SHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false, true);
