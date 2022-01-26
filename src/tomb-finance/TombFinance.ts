@@ -334,7 +334,9 @@ export class TombFinance {
       } else if (tokenName === "2SHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false, true);
       } else if (tokenName === "2OMB-WFTM LP") {
+        console.log("getting the LP token price here")
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "2OMB"), true, true);
+        console.log("my token price:", tokenPrice)
       } else if (tokenName === 'BLOOM') {
         tokenPrice = await this.getTokenPriceFromSpiritswap(token);
       } else if (tokenName === "BELUGA") {
@@ -424,12 +426,12 @@ export class TombFinance {
 
   async getTombStatFake() {
     const price = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=2omb-finance&vs_currencies=usd").then(res => res.json())
-    return price["2omb-finance"].usd
+    return { priceInDollars: price["2omb-finance"].usd }
   }
 
   async getShareStatFake() {
     const price = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=2share&vs_currencies=usd").then(res => res.json())
-    return price["2share"].usd
+    return { priceInDollars: price["2share"].usd }
   }
 
   async earnedFromBank(
