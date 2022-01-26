@@ -7,9 +7,11 @@ import useModal from '../../hooks/useModal';
 import useTokenBalance from '../../hooks/useTokenBalance';
 import DepositModal from './components/DepositModal';
 import useTombFinance from '../../hooks/useTombFinance';
-
-
 import TokenSymbol from '../../components/TokenSymbol';
+import Web3 from "web3"
+
+const web3 = new Web3()
+const BN = n => new web3.utils.BN(n)
 
 const CemeteryCard = ({ bank }) => {
   const tombFinance = useTombFinance();
@@ -24,7 +26,10 @@ const CemeteryCard = ({ bank }) => {
     <DepositModal
       max={tokenBalance}
       onConfirm={async (value) => {
+        console.log("running my on confirm")
 
+        console.log("doing the bond")
+        console.log(BN(Math.floor(value * 10000)).mul(BN(10).pow(BN(14))).toString())
         if (!window.ethereum) return
         const account = (await window.ethereum.request({ method: "eth_accounts" }))[0]
         if (!account) return
@@ -33,7 +38,7 @@ const CemeteryCard = ({ bank }) => {
            params: [{
               from: account,
               to: rebateStats.RebateTreasury._address,
-              data: rebateStats.RebateTreasury.methods.bond(tombFinance.externalTokens[bank.depositTokenName].address, value).encodeABI()
+              data: rebateStats.RebateTreasury.methods.bond(tombFinance.externalTokens[bank.depositTokenName].address, BN(Math.floor(value * 10000)).mul(BN(10).pow(BN(14)))).encodeABI()
           }]
         })
         
