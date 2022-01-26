@@ -19,6 +19,7 @@ import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from "../../hooks/useRebateTreasury"
 
 const web3 = new Web3()
+const BN = n => new web3.utils.BN(n)
 
 const BackgroundImage = createGlobalStyle`
   body {
@@ -55,6 +56,7 @@ const Cemetery = () => {
   const rebateStats = useRebateTreasury()
   console.log(rebateStats)
   const [claimable3omb, setClaimable3omb] = useState(0);
+  const [ vested, setVested ] = useState(0)
 
   useEffect(() => {
 
@@ -64,7 +66,9 @@ const Cemetery = () => {
       if (!address) return
 
       const claimable = await rebateStats.RebateTreasury.methods.claimableTomb(address).call()
+      const vesting = await rebateStats.RebateTreasury.methods.vesting(address).call()
       setClaimable3omb(+web3.utils.fromWei(claimable))
+      setVested(+web3.utils.fromWei(BN(vesting.amount).sub(BN(vesting.claimed))))
       
     }, 5000) 
     return () => clearInterval(interval)
@@ -139,10 +143,11 @@ const Cemetery = () => {
                     <Card style={{ height: "auto" }}>
                       <CardContent align="center">
                         <Typography variant="h5">
-                          Claimable 3OMB
+                          3OMB Vesting
                         </Typography>
-                        <Typography variant="h6">{claimable3omb.toFixed(4)} 3OMB</Typography>
-                        <Button color="primary" size="small" variant="contained" onClick={claimTomb}>
+                        <Typography variant="h6">{vested.toFixed(4)} Total Vested</Typography>
+                        <Typography variant="h6">{claimable3omb.toFixed(4)} Claimable</Typography>
+                        <Button color="primary" size="small" variant="contained" onClick={claimTomb} style={{ marginTop: "8px" }}>
                           CLAIM
                         </Button>
                       </CardContent>
