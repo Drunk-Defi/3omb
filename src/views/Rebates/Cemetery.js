@@ -59,20 +59,21 @@ const Cemetery = () => {
   const [ vested, setVested ] = useState(0)
 
   useEffect(() => {
-
-    const interval = setInterval(async () => {
-      if (!window.ethereum) return
-      const address = (await window.ethereum.request({ method: "eth_accounts" }))[0]
-      if (!address) return
-
-      const claimable = await rebateStats.RebateTreasury.methods.claimableTomb(address).call()
-      const vesting = await rebateStats.RebateTreasury.methods.vesting(address).call()
-      setClaimable3omb(+web3.utils.fromWei(claimable))
-      setVested(+web3.utils.fromWei(BN(vesting.amount).sub(BN(vesting.claimed))))
-      
-    }, 5000) 
+    updateVesting()
+    const interval = setInterval(updateVesting, 5000) 
     return () => clearInterval(interval)
   }, [])
+
+  async function updateVesting() {
+    if (!window.ethereum) return
+    const address = (await window.ethereum.request({ method: "eth_accounts" }))[0]
+    if (!address) return
+
+    const claimable = await rebateStats.RebateTreasury.methods.claimableTomb(address).call()
+    const vesting = await rebateStats.RebateTreasury.methods.vesting(address).call()
+    setClaimable3omb(+web3.utils.fromWei(claimable))
+    setVested(+web3.utils.fromWei(BN(vesting.amount).sub(BN(vesting.claimed))))
+}
 
   async function claimTomb() {
     console.log("claiming the tomb")
