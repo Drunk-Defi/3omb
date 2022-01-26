@@ -19,9 +19,10 @@ interface DepositModalProps extends ModalProps {
   max: BigNumber;
   onConfirm: (amount: Number) => void;
   tokenName?: string;
+  token?: any;
 }
 
-const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '' }) => {
+const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, tokenName = '', token }) => {
   const [val, setVal] = useState('');
   const [out, setOut] = useState(0);
 
@@ -52,7 +53,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
 
   function getOutAmount() {
     const toBondPrice = getAssetPrice(tokenName)
-    const outAmount = +val * (toBondPrice / rebateStats.tombPrice * (1 + (rebateStats.bondPremium / 100)))
+    const outAmount = +val * (toBondPrice / rebateStats.tombPrice * (1 + (rebateStats.bondPremium / 100)) * (token.params.multiplier / 1000000))
     return outAmount
   }
 

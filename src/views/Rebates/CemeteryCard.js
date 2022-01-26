@@ -27,7 +27,6 @@ const CemeteryCard = ({ bank }) => {
       max={tokenBalance}
       onConfirm={async (value) => {
         console.log("running my on confirm")
-
         console.log("doing the bond")
         console.log(BN(Math.floor(value * 10000)).mul(BN(10).pow(BN(14))).toString())
         if (!window.ethereum) return
@@ -44,6 +43,7 @@ const CemeteryCard = ({ bank }) => {
         
       }}
       tokenName={bank.depositTokenName}
+      token={rebateStats.assets.find( token => token.token === tombFinance.externalTokens[bank.depositTokenName].address)}
     />,
   );
 
@@ -74,6 +74,9 @@ const CemeteryCard = ({ bank }) => {
             <Typography color="textSecondary">
               {/* {bank.name} */}
               Bond {bank.depositTokenName.toUpperCase()} Earn 3OMB
+            </Typography>
+            <Typography color="textSecondary">
+              Multiplier: {bank.multiplier}
             </Typography>
           </Box>
         </CardContent>
