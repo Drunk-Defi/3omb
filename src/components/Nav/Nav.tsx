@@ -132,6 +132,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/regulations" className={classes.link}>
                 Regulations
               </Link> */}
+              <a href="https://beluga.fi" target="_blank" className={classes.link}>
+                Vaults
+              </a>
               <a href="https://snapshot.org/#/forgiving.forg.eth" target="_blank" className={classes.link}>
                 Governance
               </a>
@@ -187,6 +190,9 @@ const Nav = () => {
                 <ListItemLink primary="SBS" to="/sbs" />
                 <ListItemLink primary="Liquidity" to="/liquidity" />
                 <ListItemLink primary="Regulations" to="/regulations" /> */}
+                <ListItem button component="a" href="https://beluga.fi">
+                  <ListItemText>Vaults</ListItemText>
+                </ListItem>
                 <ListItem button component="a" href="https://snapshot.org/#/forgiving.forg.eth">
                   <ListItemText>Governance</ListItemText>
                 </ListItem>
