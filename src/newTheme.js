@@ -24,7 +24,7 @@ const newTheme = createMuiTheme({
       contrastText: '#000',
     },
     action: {
-      disabledBackground: '#CDCDCD',
+      disabledBackground: '#9f9d9d !important',
       active: '#000',
       hover: '#000',
     },

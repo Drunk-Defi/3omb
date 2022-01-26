@@ -1,10 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Card, CardActions, CardContent, Typography, Grid } from '@material-ui/core';
+import useRebateTreasury from "../../hooks/useRebateTreasury"
+import useApprove, { ApprovalState } from '../../hooks/useApprove';
+import useModal from '../../hooks/useModal';
+import useTokenBalance from '../../hooks/useTokenBalance';
+import DepositModal from './components/DepositModal';
+import useTombFinance from '../../hooks/useTombFinance';
+
 
 import TokenSymbol from '../../components/TokenSymbol';
 
 const CemeteryCard = ({ bank }) => {
+  const tombFinance = useTombFinance();
+
+  const rebateStats = useRebateTreasury()
+
+  const [approveStatus, approve] = useApprove(tombFinance.externalTokens[bank.depositTokenName], "0x8f555E00ea0FAc871b3Aa70C015915dB094E7f88");
+
+  const tokenBalance = useTokenBalance(tombFinance.externalTokens[bank.depositTokenName]);
+
+  const [onPresentDeposit, onDismissDeposit] = useModal(
+    <DepositModal
+      max={tokenBalance}
+      onConfirm={async (value) => {
+
+        if (!window.ethereum) return
+        const account = (await window.ethereum.request({ method: "eth_accounts" }))[0]
+        if (!account) return
+         window.ethereum.request({
+           method: "eth_sendTransaction",
+           params: [{
+              from: account,
+              to: rebateStats.RebateTreasury._address,
+              data: rebateStats.RebateTreasury.methods.bond(tombFinance.externalTokens[bank.depositTokenName].address, value).encodeABI()
+          }]
+        })
+        
+      }}
+      tokenName={bank.depositTokenName}
+    />,
+  );
+
   return (
     <Grid item xs={12} md={4} lg={4}>
       <Card variant="outlined" style={{ border: '1px solid var(--white)' }}>
@@ -36,9 +73,21 @@ const CemeteryCard = ({ bank }) => {
           </Box>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>
-          <Button color="primary" size="small" variant="contained" component={Link} to={`/farms/${bank.contract}`}>
-            Bond
-          </Button>
+          {approveStatus !== ApprovalState.APPROVED ? (
+              <Button
+              disabled={approveStatus !== ApprovalState.NOT_APPROVED}
+              variant="contained"
+              color="primary"
+              onClick={approve}
+              >
+              Approve {bank.depositTokenName}
+              </Button>
+          ) : (
+            <Button color="primary" size="small" variant="contained" onClick={onPresentDeposit}>
+              Bond
+            </Button>
+          )}
+
         </CardActions>
       </Card>
     </Grid>

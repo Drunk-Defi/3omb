@@ -301,9 +301,9 @@ export class TombFinance {
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
     if (depositTokenName.startsWith('3OMB')) {
-      return rewardPerSecond.mul(35500).div(59500);
+      return rewardPerSecond.mul(35500).div(60000);
     } else {
-      return rewardPerSecond.mul(24000).div(59500);
+      return rewardPerSecond.mul(24000).div(60000);
     }
   }
 
@@ -322,9 +322,9 @@ export class TombFinance {
       tokenPrice = priceOfOneFtmInDollars;
     } else {
       console.log("token name:", tokenName)
-      if (tokenName === 'TOMB-FTM-LP') {
+      if (tokenName === '3OMB-WFTM LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true);
-      } else if (tokenName === 'TSHARE-FTM-LP') {
+      } else if (tokenName === '3SHARE-WFTM-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false);
       } else if (tokenName === "2SHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false);

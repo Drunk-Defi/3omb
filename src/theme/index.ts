@@ -11,7 +11,7 @@ const theme = {
       main: red[500],
     },
     secondary: {
-      main: teal[200],
+      main: grey[400],
     },
     white,
     teal,

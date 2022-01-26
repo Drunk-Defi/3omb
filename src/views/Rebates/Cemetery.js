@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useWallet } from 'use-wallet';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Bank from '../Bank';
 import { makeStyles } from '@material-ui/core/styles';
+import Web3 from "web3"
 
 import { Box, Card, CardContent, Button, Typography, Grid } from '@material-ui/core';
 
@@ -16,6 +17,8 @@ import useCashPriceInEstimatedTWAP from '../../hooks/useCashPriceInEstimatedTWAP
 
 import useBanks from '../../hooks/useBanks';
 import useRebateTreasury from "../../hooks/useRebateTreasury"
+
+const web3 = new Web3()
 
 const BackgroundImage = createGlobalStyle`
   body {
@@ -51,6 +54,36 @@ const Cemetery = () => {
 
   const rebateStats = useRebateTreasury()
   console.log(rebateStats)
+  const [claimable3omb, setClaimable3omb] = useState(0);
+
+  useEffect(() => {
+
+    const interval = setInterval(async () => {
+      if (!window.ethereum) return
+      const address = (await window.ethereum.request({ method: "eth_accounts" }))[0]
+      if (!address) return
+
+      const claimable = await rebateStats.RebateTreasury.methods.claimableTomb(address).call()
+      setClaimable3omb(+web3.utils.fromWei(claimable))
+      
+    }, 5000) 
+    return () => clearInterval(interval)
+  }, [])
+
+  async function claimTomb() {
+    console.log("claiming the tomb")
+    if (!window.ethereum) return
+    const address = (await window.ethereum.request({ method: "eth_accounts" }))[0]
+    if (!address) return
+    window.ethereum.request({
+      method: "eth_sendTransaction",
+      params: [{
+        from: address,
+        to: rebateStats.RebateTreasury._address,
+        data: rebateStats.RebateTreasury.methods.claimRewards().encodeABI()
+      }]
+    })
+  }
 
   return (
     <Switch>
@@ -64,23 +97,23 @@ const Cemetery = () => {
               </Typography>
               <Box mt={2}>
                 <Grid container justify="center" spacing={3}>
-                  <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
+                  <Grid item xs={12} md={3} lg={3} className={classes.gridItem}>
                     <Card className={classes.gridItem}>
                       <CardContent align="center">
-                        <Typography>
+                        <Typography variant="h5">
                           3OMB Price <small>(TWAP)</small>
                         </Typography>
-                        <Typography>{rebateStats.tombPrice.toFixed(3)}</Typography>
+                        <Typography variant="h6">{rebateStats.tombPrice.toFixed(3)} FTM</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
-                  <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
+                  <Grid item xs={12} md={3} lg={3} className={classes.gridItem}>
                     <Card className={classes.gridItem}>
                       <CardContent align="center">
-                        <Typography>
+                        <Typography variant="h5">
                           Bond Premium
                         </Typography>
-                        <Typography>{rebateStats.bondPremium.toFixed(3)}%</Typography>
+                        <Typography variant="h6">{rebateStats.bondPremium.toFixed(3)}%</Typography>
                       </CardContent>
                     </Card>
                   </Grid>
@@ -99,15 +132,28 @@ const Cemetery = () => {
                         </React.Fragment>
                       ))}
                   </Grid>
-                </div>
+              </div>
+              <Box mt={2}>
+                <Grid container justify="center" spacing={3}>
+                  <Grid item xs={12} md={3} lg={3} className={classes.gridItem}>
+                    <Card style={{ height: "auto" }}>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          Claimable 3OMB
+                        </Typography>
+                        <Typography variant="h6">{claimable3omb.toFixed(4)} 3OMB</Typography>
+                        <Button color="primary" size="small" variant="contained" onClick={claimTomb}>
+                          CLAIM
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                </Grid>
+              </Box>
             </>
           ) : (
             <UnlockWallet />
           )}
-        </Route>
-        <Route path={`${path}/:bankId`}>
-          <BackgroundImage />
-          <Bank />
         </Route>
       </Page>
     </Switch>

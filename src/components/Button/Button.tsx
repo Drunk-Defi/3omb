@@ -22,6 +22,9 @@ const Button: React.FC<ButtonProps> = ({ children, disabled, href, onClick, size
     case 'secondary':
       buttonColor = color.teal[200];
       break;
+    case 'tertiary':
+      buttonColor = color.gray[400]
+      break;
     case 'default':
     default:
       buttonColor = color.primary.main;
