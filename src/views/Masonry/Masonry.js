@@ -128,7 +128,7 @@ const Masonry = () => {
             <Grid container justify="center">
               <Box mt={3} style={{ width: '525px' }}>
                 <Alert variant="transparent" severity="info">
-                  Staked 3SHARES can only be withdrawn after 6 epochs since deposit.
+                  Staked 3SHARES can only be withdrawn after 3 epochs since deposit.
                 </Alert>
               </Box>
             </Grid>
