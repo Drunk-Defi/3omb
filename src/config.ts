@@ -304,7 +304,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     multiplier: '10000x',
     buyLink: '',
     site: '',
-    sort: 1,
+    sort: 5,
     closedForStaking: false,
   },
   Tomb2SHARESFTMRebates: {
@@ -318,7 +318,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     multiplier: '10000x',
     buyLink: '',
     site: '',
-    sort: 2,
+    sort: 4,
     closedForStaking: false,
   },
   Tomb3OMBFTMRebates: {
@@ -332,7 +332,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     multiplier: '12000x',
     buyLink: '',
     site: '',
-    sort: 3,
+    sort: 1,
     closedForStaking: false,
   },
   Tomb3SHARESRebates: {
@@ -346,7 +346,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     multiplier: '10000x',
     buyLink: '',
     site: '',
-    sort: 4,
+    sort: 3,
     closedForStaking: false,
   },
   Tomb3SHARESFTMRebates: {
@@ -360,7 +360,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     multiplier: '12000x',
     buyLink: '',
     site: '',
-    sort: 5,
+    sort: 2,
     closedForStaking: false,
   },
 };
