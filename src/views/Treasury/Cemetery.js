@@ -1,9 +1,12 @@
 import React from 'react';
 import { useWallet } from 'use-wallet';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import CountUp from 'react-countup';
 import Bank from '../Bank';
+import { makeStyles } from '@material-ui/core/styles';
+import useTotalTreasuryBalance from '../../hooks/useTotalTreasuryBalance.js'
 
-import { Box, Container, Typography, Grid } from '@material-ui/core';
+import { Box, Card, CardContent, Typography, Grid, Container } from '@material-ui/core';
 
 import { Alert } from '@material-ui/lab';
 
@@ -13,6 +16,24 @@ import CemeteryCard from './CemeteryCard';
 import { createGlobalStyle } from 'styled-components';
 
 import useBanks from '../../hooks/useBanks';
+
+const assetList = [
+  {
+    depositTokenName: '2SHARES',
+  },
+  {
+    depositTokenName: '2SHARES-WFTM LP',
+  },
+  {
+    depositTokenName: '3OMB-WFTM LP',
+  },
+  {
+    depositTokenName: '3SHARES',
+  },
+  {
+    depositTokenName: '3SHARES-WFTM LP',
+  },
+]
 
 // const BackgroundImage = createGlobalStyle`
 //   body {
@@ -32,11 +53,22 @@ const BackgroundImage = createGlobalStyle`
 }
 `;
 
+const useStyles = makeStyles((theme) => ({
+  gridItem: {
+    height: '100%',
+    [theme.breakpoints.up('md')]: {
+      height: '90px',
+    },
+  },
+}));
+
 const Cemetery = () => {
+  const classes = useStyles();
   const [banks] = useBanks();
   const { path } = useRouteMatch();
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
+  const balance = useTotalTreasuryBalance();
   return (
     <Switch>
       <Page>
@@ -44,44 +76,11 @@ const Cemetery = () => {
           <BackgroundImage />
           {!!account ? (
             <Container maxWidth="lg">
-              <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
+              <Typography color="textPrimary" align="center" variant="h3" gutterBottom style={{ marginBottom: '75px' }}>
                 Treasury
               </Typography>
 
               {/* <Box mt={5}>
-                <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
-                  <Typography color="textPrimary" variant="h4" gutterBottom>
-                    Earn TSHARE by staking LP
-                  </Typography>
-                  <Grid container spacing={3}>
-                    {activeBanks
-                      .filter((bank) => bank.sectionInUI === 2)
-                      .map((bank) => (
-                        <React.Fragment key={bank.name}>
-                          <CemeteryCard bank={bank} />
-                        </React.Fragment>
-                      ))}
-                  </Grid>
-                </div>
-
-                <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
-                  <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
-                    Earn TOMB by staking LP
-                  </Typography>
-                  <Alert variant="filled" severity="warning">
-                    All below pools have ended. Please unstake and collect your rewards.
-                  </Alert>
-                  <Grid container spacing={3} style={{ marginTop: '20px' }}>
-                    {activeBanks
-                      .filter((bank) => bank.sectionInUI === 1)
-                      .map((bank) => (
-                        <React.Fragment key={bank.name}>
-                          <CemeteryCard bank={bank} />
-                        </React.Fragment>
-                      ))}
-                  </Grid>
-                </div>
-
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
                     Genesis Pools
@@ -97,6 +96,35 @@ const Cemetery = () => {
                   </Grid>
                 </div>
               </Box> */}
+              
+              <Box mt={2}>
+                <Grid container justify="center" spacing={3}>
+                  <Grid item xs={12} md={4} lg={4} className={classes.gridItem}>
+                    <Card style={{ height: "auto" }}>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          Total Treasury Balance:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance} separator="," prefix="$" />
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                </Grid>
+              </Box>
+
+              {/* <Grid container justify="center" spacing={3}>
+                {assetList.map((asset) => 
+                <Card>
+                  <CemeteryCard bank={asset} />
+                </Card>
+                )}
+              </Grid> */}
+
+
+
+
+              
+
             </Container>
           ) : (
             <UnlockWallet />
