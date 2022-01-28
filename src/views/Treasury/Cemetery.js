@@ -68,7 +68,7 @@ const Cemetery = () => {
   const { path } = useRouteMatch();
   const { account } = useWallet();
   const activeBanks = banks.filter((bank) => !bank.finished);
-  const balance = useTotalTreasuryBalance();
+  const { balance, balance_2shares_wftm, balance_3omb_wftm, balance_3shares_wftm, balance_3omb, balance_3shares, balance_2shares } = useTotalTreasuryBalance();
   return (
     <Switch>
       <Page>
@@ -76,7 +76,7 @@ const Cemetery = () => {
           <BackgroundImage />
           {!!account ? (
             <Container maxWidth="lg">
-              <Typography color="textPrimary" align="center" variant="h3" gutterBottom style={{ marginBottom: '75px' }}>
+              <Typography color="textPrimary" align="center" variant="h3" gutterBottom style={{ marginBottom: '50px' }}>
                 Treasury
               </Typography>
 
@@ -106,6 +106,58 @@ const Cemetery = () => {
                           Total Treasury Balance:
                         </Typography>
                         <CountUp style={{ fontSize: '25px' }} end={balance} separator="," prefix="$" />
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                </Grid>
+              </Box>
+
+              <Box mt={2} style={{ marginTop: '100px' }}>
+              <Typography color="textPrimary" align="center" variant="h4" gutterBottom style={{ marginBottom: '50px' }}>
+                Protocol Owned Liquidity
+              </Typography>
+                <Grid container justify="center" spacing={3}>
+                  <Grid item xs={12} md={4} lg={4} className={classes.gridItem}>
+                    <Card style={{ height: "auto" }}>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          3OMB-WFTM LP:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance_3omb_wftm} separator="," prefix="$" />
+                      </CardContent>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          3SHARES-WFTM LP:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance_3shares_wftm} separator="," prefix="$" />
+                      </CardContent>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          2SHARES-WFTM LP:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance_2shares_wftm} separator="," prefix="$" />
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                  <Grid item xs={12} md={4} lg={4} className={classes.gridItem}>
+                    <Card style={{ height: "auto" }}>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          3OMB:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance_3omb} separator="," prefix="$" />
+                      </CardContent>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          3SHARES:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance_3shares} separator="," prefix="$" />
+                      </CardContent>
+                      <CardContent align="center">
+                        <Typography variant="h5">
+                          2SHARES:
+                        </Typography>
+                        <CountUp style={{ fontSize: '25px' }} end={balance_2shares} separator="," prefix="$" />
                       </CardContent>
                     </Card>
                   </Grid>
