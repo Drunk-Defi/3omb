@@ -14,6 +14,8 @@ import {
   ListItemText,
   Divider,
 } from '@material-ui/core';
+import styled from "styled-components";
+
 
 import ListItemLink from '../ListItemLink';
 
@@ -22,6 +24,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountButton from './AccountButton';
+
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -81,6 +84,7 @@ const Nav = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -141,7 +145,7 @@ const Nav = () => {
               <a href="https://snapshot.org/#/forgiving.forg.eth" target="_blank" className={classes.link}>
                 Governance
               </a>
-              <a href="https://docs.2omb.finance" target="_blank" className={classes.link}>
+              <a href="https://gedeon-crypto.gitbook.io/3omb.finance/" target="_blank" className={classes.link}>
                 Docs
               </a>
               <a href="https://2omb.finance" target="_blank" className={classes.link}>
@@ -200,7 +204,7 @@ const Nav = () => {
                 <ListItem button component="a" href="https://snapshot.org/#/forgiving.forg.eth">
                   <ListItemText>Governance</ListItemText>
                 </ListItem>
-                <ListItem button component="a" href="https://docs.2omb.finance">
+                <ListItem button component="a" href="https://gedeon-crypto.gitbook.io/3omb.finance/">
                   <ListItemText>Docs</ListItemText>
                 </ListItem>
                 <ListItem button component="a" href="https://2omb.finance">

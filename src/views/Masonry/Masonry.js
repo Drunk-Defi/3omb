@@ -6,6 +6,7 @@ import Spacer from '../../components/Spacer';
 import Harvest from './components/Harvest';
 import Stake from './components/Stake';
 import { makeStyles } from '@material-ui/core/styles';
+import useRebateTreasury from "../../hooks/useRebateTreasury"
 
 import { Box, Card, CardContent, Button, Typography, Grid } from '@material-ui/core';
 
@@ -70,6 +71,7 @@ const Masonry = () => {
   const canWithdraw = useWithdrawCheck();
   const scalingFactor = useMemo(() => (cashStat ? Number(cashStat.priceInDollars).toFixed(4) : null), [cashStat]);
   const { to } = useTreasuryAllocationTimes();
+  const rebateStats = useRebateTreasury()
 
   return (
     <Page>
@@ -101,9 +103,9 @@ const Masonry = () => {
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
                     <Typography>
-                      3OMB Price<small>(TWAP)</small>
+                      3OMB Price<small> (TWAP)</small>
                     </Typography>
-                    <Typography>{scalingFactor}</Typography>
+                    <Typography>{rebateStats.tombPrice.toFixed(4)} FTM</Typography>
                   </CardContent>
                 </Card>
               </Grid>
