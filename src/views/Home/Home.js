@@ -20,7 +20,7 @@ import useFantomPrice from '../../hooks/useFantomPrice';
 import { tomb as tombTesting, tShare as tShareTesting } from '../../tomb-finance/deployments/deployments.testing.json';
 import { tomb as tombProd, tShare as tShareProd } from '../../tomb-finance/deployments/deployments.mainnet.json';
 
-import MetamaskFox from '../../assets/img/metamask-fox.svg';
+import useTotalTreasuryBalance from '../../hooks/useTotalTreasuryBalance.js';
 
 import { Box, Button, Card, CardContent, Grid, Paper } from '@material-ui/core';
 import ZapModal from '../Bank/components/ZapModal';
@@ -57,6 +57,8 @@ const Home = () => {
   const tBondStats = useBondStats();
   const tombFinance = useTombFinance();
   const { price: ftmPrice, marketCap: ftmMarketCap, priceChange: ftmPriceChange } = useFantomPrice();
+  const { balance: rebatesTVL } = useTotalTreasuryBalance();
+  const totalTVL = TVL + rebatesTVL;
 
   let tomb;
   let tShare;
@@ -181,7 +183,7 @@ const Home = () => {
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
               <h2>Total Value Locked</h2>
-              <CountUp style={{ fontSize: '25px' }} end={TVL} separator="," prefix="$" />
+              <CountUp style={{ fontSize: '25px' }} end={totalTVL} separator="," prefix="$" />
             </CardContent>
           </Card>
         </Grid>
