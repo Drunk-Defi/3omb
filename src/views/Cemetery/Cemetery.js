@@ -44,7 +44,7 @@ const Cemetery = () => {
           <BackgroundImage />
           {!!account ? (
             <Container maxWidth="lg">
-              /* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
+               <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
                     Earn PINT by staking LP
                   </Typography>
@@ -58,7 +58,7 @@ const Cemetery = () => {
                         </React.Fragment>
                       ))}
                   </Grid>
-                 */</Container>
+                 /</Container>
                 </div>
 
                 {/* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
