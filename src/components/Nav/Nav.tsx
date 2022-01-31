@@ -102,7 +102,7 @@ const Nav = () => {
             <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">Tomb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
-                Light Finance
+                Drunk Defi
               </Link>
             </Typography>
             <Box mr={5}>
@@ -110,13 +110,13 @@ const Nav = () => {
                 Home
               </Link>
               <Link color="textPrimary" to="/farms" className={classes.link}>
-                Space Station
+                Bar
               </Link>
               <Link color="textPrimary" to="/boardroom" className={classes.link}>
-                Airlock
+                Back Room
               </Link>
               <Link color="textPrimary" to="/bonds" className={classes.link}>
-                Vacuum
+                Hangover
               </Link>
             </Box>
             <AccountButton text="Connect" />
