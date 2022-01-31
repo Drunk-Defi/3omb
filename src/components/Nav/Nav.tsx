@@ -102,7 +102,7 @@ const Nav = () => {
             <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
               {/* <a className={ classes.brandLink } href="/">Tomb Finance</a> */}
               <Link to="/" color="inherit" className={classes.brandLink}>
-                3omb Finance
+                Light Finance
               </Link>
             </Typography>
             <Box mr={5}>
@@ -110,16 +110,13 @@ const Nav = () => {
                 Home
               </Link>
               <Link color="textPrimary" to="/farms" className={classes.link}>
-                3Farms
+                Space Station
               </Link>
               <Link color="textPrimary" to="/boardroom" className={classes.link}>
-                3Room
+                Airlock
               </Link>
               <Link color="textPrimary" to="/bonds" className={classes.link}>
-                3Bonds
-              </Link>
-              <Link color="textPrimary" to="/rebates" className={classes.link}>
-                3DAO
+                Vacuum
               </Link>
               <Link color="textPrimary" to="/treasury" className={classes.link}>
                 Treasury
@@ -166,7 +163,7 @@ const Nav = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              3omb Finance
+              Light Finance
             </Typography>
 
             <Drawer
@@ -188,28 +185,16 @@ const Nav = () => {
               <Divider />
               <List>
                 <ListItemLink primary="Home" to="/" />
-                <ListItemLink primary="3Farms" to="/farms" />
-                <ListItemLink primary="3Room" to="/boardroom" />
-                <ListItemLink primary="3Bonds" to="/bonds" />
-                <ListItemLink primary="3DAO" to="/rebates" />
+                <ListItemLink primary="Space Station" to="/farms" />
+                <ListItemLink primary="Airlock" to="/boardroom" />
+                <ListItemLink primary="Vacuum" to="/bonds" />
                 <ListItemLink primary="Treasury" to="/treasury" />
                 {/* <ListItemLink primary="Masonry" to="/masonry" />
                 <ListItemLink primary="Pit" to="/pit" />
                 <ListItemLink primary="SBS" to="/sbs" />
                 <ListItemLink primary="Liquidity" to="/liquidity" />
                 <ListItemLink primary="Regulations" to="/regulations" /> */}
-                <ListItem button component="a" href="https://beluga.fi">
-                  <ListItemText>Vaults</ListItemText>
-                </ListItem>
-                <ListItem button component="a" href="https://snapshot.org/#/forgiving.forg.eth">
-                  <ListItemText>Governance</ListItemText>
-                </ListItem>
-                <ListItem button component="a" href="https://gedeon-crypto.gitbook.io/3omb.finance/">
-                  <ListItemText>Docs</ListItemText>
-                </ListItem>
-                <ListItem button component="a" href="https://2omb.finance">
-                  <ListItemText>2omb</ListItemText>
-                </ListItem>
+              
                 <ListItem style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <AccountButton text="Connect" />
                 </ListItem>
