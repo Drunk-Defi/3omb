@@ -118,9 +118,6 @@ const Nav = () => {
               <Link color="textPrimary" to="/bonds" className={classes.link}>
                 Vacuum
               </Link>
-              <Link color="textPrimary" to="/treasury" className={classes.link}>
-                Treasury
-              </Link>
             </Box>
             <AccountButton text="Connect" />
           </>
