@@ -386,35 +386,7 @@ const Home = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
-            <CardContent align="center">
-              <h2>KEG-FTM Spookyswap LP</h2>
-              <Box mt={2}>
-                <CardIcon>
-                  <TokenSymbol symbol="TSHARE-FTM-LP" />
-                </CardIcon>
-              </Box>
-              {/*<Box mt={2}>
-                <Button color="primary" onClick={onPresentTshareZap} variant="contained">
-                  Zap In
-                </Button>
-            </Box>*/}
-              <Box mt={2}>
-                <span style={{ fontSize: '26px' }}>
-                  {tshareLPStats?.tokenAmount ? tshareLPStats?.tokenAmount : '-.--'} 3SHARE /{' '}
-                  {tshareLPStats?.ftmAmount ? tshareLPStats?.ftmAmount : '-.--'} FTM
-                </span>
-              </Box>
-              <Box>${tshareLPStats?.priceOfOne ? tshareLPStats.priceOfOne : '-.--'}</Box>
-              <span style={{ fontSize: '12px' }}>
-                Liquidity: ${tshareLPStats?.totalLiquidity ? tshareLPStats.totalLiquidity : '-.--'}
-                <br />
-                Total supply: {tshareLPStats?.totalSupply ? tshareLPStats.totalSupply : '-.--'}
-              </span>
-            </CardContent>
-          </Card>
-        </Grid>
+        
       </Grid>
     </Page>
   );
