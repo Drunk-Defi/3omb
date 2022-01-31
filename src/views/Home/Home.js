@@ -154,14 +154,13 @@ const Home = () => {
         <Grid item xs={12} sm={8}>
           <Paper style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <Box p={4}>
-              <h2>Welcome to Light Speed Finance!</h2>
-              <p>An algorithmic stablecoin on the Multivac blockchain, pegged to the price of 1 MTV</p>
-              <p>Light utilizes seigniorage.</p>
+              <h2>Welcome to Drunk Defi!</h2>
+              <p>An algorithmic stablecoin on the Fantom blockchain, pegged to the price of 1 FTM</p>
               <p>Forked from <StyledLink target="_blank" href="https://tomb.finance">tomb.finance</StyledLink>.</p>
               <p>
-                Stake your Light/MTV LP in the <StyledLink href="/farms">Space Station</StyledLink> to earn Speed rewards.
-                Then stake your earned Speed in the <StyledLink href="/">Airlock</StyledLink> to maximize profits!
-                Let there be Light!
+                Stake your PINT/FTM LP in the <StyledLink href="/farms">Bar</StyledLink> to earn KEG rewards.
+                Then stake your earned KEG in the <StyledLink href="/">Back Room</StyledLink> to maximize profits!
+                Let's get drunk!
               </p>
             </Box>
           </Paper>
@@ -213,10 +212,10 @@ const Home = () => {
                 style={{ marginRight: '10px' }}
                 className={classes.button}
               >
-                Buy Light
+                Buy PINT
               </Button>
               <Button variant="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0x6437adac543583c4b31bf0323a0870430f5cc2e7" style={{ marginRight: '10px' }} className={classes.button}>
-                Buy Speed
+                Buy KEG
               </Button>
             </CardContent>
           </Card>
@@ -226,7 +225,7 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>MTV</h2>
+              <h2>FTM</h2>
               <Box mt={2} style={{ backgroundColor: "transparent !important" }}>
                 <CardIcon style={{ backgroundColor: "transparent !important" }}>
                   <TokenSymbol symbol="wFTM" style={{ backgroundColor: "transparent !important" }} />
@@ -250,7 +249,7 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>Light</h2>
+              <h2>PINT</h2>
               {/* <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TOMB');
@@ -289,7 +288,7 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>Speed</h2>
+              <h2>KEG</h2>
               {/* <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TSHARE');
@@ -326,7 +325,7 @@ const Home = () => {
         <Grid item xs={12} sm={3}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center" style={{ position: 'relative' }}>
-              <h2>Entropy</h2>
+              <h2>HANGOVER</h2>
               {/* <Button
                 onClick={() => {
                   tombFinance.watchAssetInMetamask('TBOND');
@@ -361,7 +360,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>Light-MTV MoonSwap LP</h2>
+              <h2>PINT-FTM SpookySwap LP</h2>
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="TOMB-FTM-LP" />
@@ -390,7 +389,7 @@ const Home = () => {
         <Grid item xs={12} sm={6}>
           <Card style={{ backgroundColor: "transparent", boxShadow: "none", border: "1px solid var(--white)" }}>
             <CardContent align="center">
-              <h2>Speed-MTV MoonSwap LP</h2>
+              <h2>KEG-FTM Spookyswap LP</h2>
               <Box mt={2}>
                 <CardIcon>
                   <TokenSymbol symbol="TSHARE-FTM-LP" />
