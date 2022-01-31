@@ -5,10 +5,10 @@ import { BankInfo } from './tomb-finance';
 
 const configurations: { [env: string]: Configuration } = {
   production: {
-    chainId: '62621',
-    networkName: 'Multivac Mainnet',
-    ftmscanUrl: 'https://e.mtv.ac',
-    defaultProvider: 'https://rpc.mtv.ac/',
+    chainId: ChainId.MAINNET,
+    networkName: 'Fantom Opera Mainnet',
+    ftmscanUrl: 'https://ftmscan.com',
+    defaultProvider: 'https://rpc.ftm.tools/',
     deployments: require('./tomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
       WFTM: ['0x4c4a5d20f1ee40eaacb6a7787d20d16b7997363b', 18],
