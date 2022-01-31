@@ -121,23 +121,6 @@ const Nav = () => {
               <Link color="textPrimary" to="/treasury" className={classes.link}>
                 Treasury
               </Link>
-              {/* <Link color="textPrimary" to="/treasury" className={classes.link}>
-                Treasury
-              </Link>
-              <a href="/" target="_blank" className={classes.link}>
-                Vaults
-              </a> */}
-              {/* <Link color="textPrimary" to="/sbs" className={classes.link}>
-                SBS
-              </Link>
-              <Link color="textPrimary" to="/liquidity" className={classes.link}>
-                Liquidity
-              </Link>
-              <Link color="textPrimary" to="/regulations" className={classes.link}>
-                Regulations
-              </Link> */}
-              <a href="https://gedeon-crypto.gitbook.io/3omb.finance/" target="_blank" className={classes.link}>
-                Docs
             </Box>
             <AccountButton text="Connect" />
           </>
