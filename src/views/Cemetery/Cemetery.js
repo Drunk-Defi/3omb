@@ -44,24 +44,21 @@ const Cemetery = () => {
           <BackgroundImage />
           {!!account ? (
             <Container maxWidth="lg">
-              <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-                Bar
-              </Typography>
-
-              <Box mt={5}>
-                <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
-                  <Typography color="textPrimary" variant="h4" gutterBottom>
-                    Earn PINTS by staking LP Tokens
+              /* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
+                  <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '20px' }}>
+                    Earn PINT by staking LP
                   </Typography>
-                  <Grid container spacing={3}>
+                  
+                  <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
-                      .filter((bank) => bank.sectionInUI === 2)
+                      .filter((bank) => bank.sectionInUI === 1)
                       .map((bank) => (
                         <React.Fragment key={bank.name}>
                           <CemeteryCard bank={bank} />
                         </React.Fragment>
                       ))}
                   </Grid>
+                </div> */</Container>
                 </div>
 
                 {/* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
