@@ -5,7 +5,7 @@ import { BankInfo } from './tomb-finance';
 
 const configurations: { [env: string]: Configuration } = {
   production: {
-    chainId: ChainId.MAINNET,
+    chainId: '62621',
     networkName: 'Multivac Mainnet',
     ftmscanUrl: 'https://e.mtv.ac',
     defaultProvider: 'https://rpc.mtv.ac/',
