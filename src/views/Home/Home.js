@@ -207,14 +207,14 @@ const Home = () => {
               </Button> */}
               <Button
                 target="_blank"
-                href="https://spookyswap.finance/swap?outputCurrency=0x14def7584a6c52f470ca4f4b9671056b22f4ffde"
+                href="https://spookyswap.finance/swap?outputCurrency=0x4ef059d5a8ca02e894b7db73429f659a934407a4"
                 variant="contained"
                 style={{ marginRight: '10px' }}
                 className={classes.button}
               >
                 Buy PINT
               </Button>
-              <Button variant="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0x6437adac543583c4b31bf0323a0870430f5cc2e7" style={{ marginRight: '10px' }} className={classes.button}>
+              <Button variant="contained" target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0xAa5e966F9165ea9B24cB30392dCF9D64eD2aA342" style={{ marginRight: '10px' }} className={classes.button}>
                 Buy KEG
               </Button>
             </CardContent>
