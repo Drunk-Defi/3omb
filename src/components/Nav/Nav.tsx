@@ -133,7 +133,7 @@ const Nav = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Light Finance
+              Drunk Defi
             </Typography>
 
             <Drawer
@@ -155,9 +155,9 @@ const Nav = () => {
               <Divider />
               <List>
                 <ListItemLink primary="Home" to="/" />
-                <ListItemLink primary="Space Station" to="/farms" />
-                <ListItemLink primary="Airlock" to="/boardroom" />
-                <ListItemLink primary="Vacuum" to="/bonds" />
+                <ListItemLink primary="Bar" to="/farms" />
+                <ListItemLink primary="Back Room" to="/boardroom" />
+                <ListItemLink primary="Hangover" to="/bonds" />
                 {/* <ListItemLink primary="Masonry" to="/masonry" />
                 <ListItemLink primary="Pit" to="/pit" />
                 <ListItemLink primary="SBS" to="/sbs" />
