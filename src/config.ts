@@ -49,16 +49,16 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   sort: the order of the pool
   */
   Tomb2sharesRewardPool: {
-    name: 'Earn 3OMB by staking 2SHARES',
+    name: 'Earn Pint by staking Keg',
     poolId: 0,
     sectionInUI: 0,
     contract: 'Tomb2ShareRewardPool',
-    depositTokenName: '2SHARES',
+    depositTokenName: '3SHARES',
     earnTokenName: '3OMB',
     finished: false,
     multiplier: '7500x',
     site: "https://2omb.finance",
-    buyLink: 'https://spookyswap.finance/swap?outputCurrency=0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae',
+    buyLink: 'https://spookyswap.finance/swap?outputCurrency=0xaa5e966f9165ea9b24cb30392dcf9d64ed2aa342',
     sort: 0,
     closedForStaking: true,
   },
