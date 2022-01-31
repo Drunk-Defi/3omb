@@ -136,18 +136,8 @@ const Nav = () => {
               <Link color="textPrimary" to="/regulations" className={classes.link}>
                 Regulations
               </Link> */}
-              <a href="https://beluga.fi" target="_blank" className={classes.link}>
-                Vaults
-              </a>
-              <a href="https://snapshot.org/#/forgiving.forg.eth" target="_blank" className={classes.link}>
-                Governance
-              </a>
               <a href="https://gedeon-crypto.gitbook.io/3omb.finance/" target="_blank" className={classes.link}>
                 Docs
-              </a>
-              <a href="https://2omb.finance" target="_blank" className={classes.link}>
-                2omb
-              </a>
             </Box>
             <AccountButton text="Connect" />
           </>
@@ -188,7 +178,6 @@ const Nav = () => {
                 <ListItemLink primary="Space Station" to="/farms" />
                 <ListItemLink primary="Airlock" to="/boardroom" />
                 <ListItemLink primary="Vacuum" to="/bonds" />
-                <ListItemLink primary="Treasury" to="/treasury" />
                 {/* <ListItemLink primary="Masonry" to="/masonry" />
                 <ListItemLink primary="Pit" to="/pit" />
                 <ListItemLink primary="SBS" to="/sbs" />
