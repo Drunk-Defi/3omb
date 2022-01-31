@@ -79,7 +79,7 @@ const Masonry = () => {
       {!!account ? (
         <>
           <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-            3Room
+            Back Room
           </Typography>
           <Box mt={5}>
             <Grid container justify="center" spacing={3}>
@@ -103,7 +103,7 @@ const Masonry = () => {
                 <Card className={classes.gridItem}>
                   <CardContent align="center">
                     <Typography>
-                      3OMB Price<small> (TWAP)</small>
+                      PINT Price<small> (TWAP)</small>
                     </Typography>
                     <Typography>{rebateStats.tombPrice.toFixed(4)} FTM</Typography>
                   </CardContent>
@@ -130,7 +130,7 @@ const Masonry = () => {
             <Grid container justify="center">
               <Box mt={3} style={{ width: '525px' }}>
                 <Alert variant="transparent" severity="info">
-                  Staked 3SHARES can only be withdrawn after 3 epochs since deposit.
+                  Staked PINTS can only be withdrawn after 1 epochs since deposit.
                 </Alert>
               </Box>
             </Grid>
