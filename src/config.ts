@@ -6,14 +6,14 @@ import { BankInfo } from './tomb-finance';
 const configurations: { [env: string]: Configuration } = {
   production: {
     chainId: ChainId.MAINNET,
-    networkName: 'Fantom Opera Mainnet',
-    ftmscanUrl: 'https://ftmscan.com',
-    defaultProvider: 'https://rpc.ftm.tools/',
+    networkName: 'Multivac Mainnet',
+    ftmscanUrl: 'https://e.mtv.ac',
+    defaultProvider: 'https://rpc.mtv.ac/',
     deployments: require('./tomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
-      WFTM: ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
+      WFTM: ['0x4c4a5d20f1ee40eaacb6a7787d20d16b7997363b', 18],
       FUSDT: ['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', 6], // This is actually usdc on mainnet not fusdt
-      'wFTM': ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
+      'wFTM': ['0x4c4a5d20f1ee40eaacb6a7787d20d16b7997363b', 18],
       '2OMB': ['0x7a6e4E3CC2ac9924605DCa4bA31d1831c84b44aE', 18],
       '2OMB-2SHARES LP': ['0xd9B5f00d183df52D717046521152303129F088DD', 18],
       '2OMB-WFTM LP': ['0xbdC7DFb7B88183e87f003ca6B5a2F81202343478',18],
