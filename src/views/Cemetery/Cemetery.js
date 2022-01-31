@@ -45,7 +45,7 @@ const Cemetery = () => {
           {!!account ? (
             <Container maxWidth="lg">
               <Typography color="textPrimary" align="center" variant="h3" gutterBottom>
-                3Farms
+                Bar
               </Typography>
 
               <Box mt={5}>
