@@ -82,9 +82,6 @@ const Cemetery = () => {
                   </Grid>
                 </div> */}
                 
-                <Alert variant="filled" severity="info" style={{ marginTop: '50px' }}>
-                  All below pools have ended. Please unstake and collect your rewards.
-                </Alert>
 
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 0).length === 0}>
                   <Typography color="textPrimary" variant="h4" gutterBottom style={{ marginTop: '15px', marginBottom: '30px' }}>
