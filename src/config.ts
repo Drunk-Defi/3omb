@@ -15,11 +15,16 @@ const configurations: { [env: string]: Configuration } = {
       FUSDT: ['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', 6], // This is actually usdc on mainnet not fusdt
       'wFTM': ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
       'PINT': ['0x7a6e4E3CC2ac9924605DCa4bA31d1831c84b44aE', 18],
+      'TOMB': ['0x7a6e4E3CC2ac9924605DCa4bA31d1831c84b44aE', 18],
       'PINT-KEG LP': ['0xd9B5f00d183df52D717046521152303129F088DD', 18],
       'PINT-WFTM LP': ['0xbdC7DFb7B88183e87f003ca6B5a2F81202343478',18],
       'KEG-WFTM LP': ['0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52',18],
       'KEG': ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
+      'TSHARE': ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
+
       'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
+      'TBOND': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
+
       'PINT-FTM-LP': ['0x83a52eff2e9d112e9b022399a9fd22a9db7d33ae', 18],
       'KEG-FTM-LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
     },
