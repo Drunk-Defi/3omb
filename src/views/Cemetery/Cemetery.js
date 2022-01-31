@@ -58,7 +58,6 @@ const Cemetery = () => {
                         </React.Fragment>
                       ))}
                   </Grid>
-                 </Container>
                 </div>
 
                 {/* <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 1).length === 0}>
