@@ -44,7 +44,7 @@ const Footer = () => {
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="body2" color="textPrimary" align="left">
-              {'Copyright © 3omb Finance '}
+              {'Copyright © DRUNK DEFI '}
               {new Date().getFullYear()}
               {', forked from '}
               <Link color="inherit" href="https://tomb.finance">
