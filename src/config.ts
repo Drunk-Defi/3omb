@@ -19,7 +19,6 @@ const configurations: { [env: string]: Configuration } = {
       'Pint-WFTM LP': ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',18],
       'Keg-WFTM LP': ['0x6398ACBBAB2561553a9e458Ab67dCFbD58944e52',18],
       'Keg': ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
-      'Keg': ['0xAa5e966F9165ea9B24cB30392dCF9D64eD2aA342', 18],
       'USDT-FTM-LP': ['0x2b4C76d0dc16BE1C31D4C1DC53bF9B45987Fc75c', 18],
       'TOMB-FTM-LP': ['0x1CC86262AF235C5129540069b72A96EDe2F9A16a', 18],
       'TSHARE-FTM-LP': ['0xd352dac95a91afefb112dbbb3463ccfa5ec15b65', 18],
