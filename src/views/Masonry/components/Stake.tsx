@@ -70,7 +70,7 @@ const Stake: React.FC = () => {
         onWithdraw(value);
         onDismissWithdraw();
       }}
-      tokenName={'Keg'}
+      tokenName={'KEG'}
     />,
   );
 
