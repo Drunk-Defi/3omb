@@ -102,7 +102,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     multiplier: '2x',
     site: "https://trusting-torvalds-2a9975.netlify.app/",
     buyLink: 'https://spookyswap.finance/add/FTM/0x4ef059d5a8ca02e894b7db73429f659a934407a4',
-    sort: 13,
+    sort: 2,
     closedForStaking: false,
   },
   
