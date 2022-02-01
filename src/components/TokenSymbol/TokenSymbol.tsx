@@ -43,17 +43,14 @@ const logosBySymbol: { [title: string]: string } = {
   BIFI: bifiLogo,
   MIM: mimLogo,
   BLOOM: bloomLogo,
-  '2OMB-WFTM LP': TwoombLPLogo,
-  '2SHARES-WFTM LP': TwosharesLPLogo,
-  '2OMB-2SHARES LP': TwoombTwosharesLPLogo,
 
-  '3OMB-WFTM LP': ThreeombLPLogo,
-  '3SHARES-WFTM LP': ThreesharesLPLogo,
+  'Pint-WFTM LP': ThreeombLPLogo,
+  'Keg-WFTM LP': ThreesharesLPLogo,
 
 
   'wFTM': wftmLogo,
-  '2OMB': twoombLogo,
-  '2SHARES': twoshareLogo,
+  'Pint': twoombLogo,
+  'Keg': twoshareLogo,
   'TOMB-FTM-LP': tombFtmLpLogo,
   'TSHARE-FTM-LP': tshareFtmLpLogo,
 };
