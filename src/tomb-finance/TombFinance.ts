@@ -234,7 +234,7 @@ export class TombFinance {
     console.log("deposit token price:", depositTokenPrice)
     const stakeInPool = await depositToken.balanceOf(bank.address);
     const TVL = Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
-    const stat = bank.earnTokenName === '3OMB' ? await this.getTombStat() : await this.getShareStat();
+    const stat = bank.earnTokenName === 'Pint' ? await this.getTombStat() : await this.getShareStat();
     const tokenPerSecond = await this.getTokenPerSecond(
       bank.earnTokenName,
       bank.contract,
@@ -270,10 +270,10 @@ export class TombFinance {
     poolContract: Contract,
     depositTokenName: string,
   ) {
-    if (earnTokenName === '3OMB') {
+    if (earnTokenName === 'Pint') {
       if (!contractName.endsWith('TombRewardPool')) {
         const rewardPerSecond = await poolContract.tombPerSecond();
-        if (depositTokenName === '2SHARES') {
+        if (depositTokenName === 'Keg') {
           return rewardPerSecond.mul(7500).div(25000).div(24).mul(20);
         } else if (depositTokenName === '2OMB') {
           return rewardPerSecond.mul(5000).div(25000).div(24).mul(20);
@@ -301,11 +301,9 @@ export class TombFinance {
       return await poolContract.epochTombPerSecond(0);
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
-    if (depositTokenName.startsWith('3OMB')) {
+    if (depositTokenName.startsWith('Pint')) {
       return rewardPerSecond.mul(35500).div(60000);
-    } else if (depositTokenName.startsWith('2OMB')) {
-      return rewardPerSecond.mul(15000).div(60000);
-    } else if (depositTokenName.startsWith('2SHARE')) {
+    }  else if (depositTokenName.startsWith('Keg')) {
       return rewardPerSecond.mul(15000).div(60000);
     } else {
       return rewardPerSecond.mul(24000).div(60000);
@@ -327,9 +325,9 @@ export class TombFinance {
       tokenPrice = priceOfOneFtmInDollars;
     } else {
       console.log("token name:", tokenName)
-      if (tokenName === '3OMB-WFTM LP') {
+      if (tokenName === 'Pint-WFTM LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
-      } else if (tokenName === '3SHARES-WFTM LP') {
+      } else if (tokenName === 'Keg-WFTM LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
       } else if (tokenName === "2SHARES-WFTM LP") {
         tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false, true);
@@ -442,7 +440,7 @@ export class TombFinance {
   ): Promise<BigNumber> {
     const pool = this.contracts[poolName];
     try {
-      if (earnTokenName === '3OMB') {
+      if (earnTokenName === 'Pint') {
         return await pool.pendingTOMB(poolId, account);
       } else {
         return await pool.pendingShare(poolId, account);
