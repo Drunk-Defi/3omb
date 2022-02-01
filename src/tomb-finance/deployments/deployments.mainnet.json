@@ -1015,7 +1015,7 @@
       },
       {
         "inputs": [],
-        "name": "INITIAL_TOMB_POOL_DISTRIBUTION",
+        "name": "INITIAL_Pint_POOL_DISTRIBUTION",
         "outputs": [
           {
             "internalType": "uint256",
@@ -1350,7 +1350,7 @@
       },
       {
         "inputs": [],
-        "name": "tombOracle",
+        "name": "PintOracle",
         "outputs": [
           {
             "internalType": "address",
@@ -1535,7 +1535,7 @@
         "inputs": [
           {
             "internalType": "address",
-            "name": "_tombOracle",
+            "name": "_PintOracle",
             "type": "address"
           }
         ],
