@@ -97,7 +97,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sectionInUI: 2,
     contract: 'Tomb2ombWftmLPRewardPool',
     depositTokenName: 'Pint-WFTM LP',
-    earnTokenName: 'Keg',
+    earnTokenName: 'KEG',
     finished: false,
     multiplier: '2x',
     site: "https://trusting-torvalds-2a9975.netlify.app/",
