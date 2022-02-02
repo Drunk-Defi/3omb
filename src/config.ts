@@ -11,7 +11,7 @@ const configurations: { [env: string]: Configuration } = {
     defaultProvider: 'https://rpc.ftm.tools/',
     deployments: require('./tomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
-      WFTM: ['0x4c4a5d20f1ee40eaacb6a7787d20d16b7997363b', 18],
+      WFTM: ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
       FUSDT: ['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', 6], // This is actually usdc on mainnet not fusdt
       TOMB: ['0x4ef059d5a8ca02e894b7db73429f659a934407a4', 18],
       TSHARE: ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
