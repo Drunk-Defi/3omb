@@ -14,6 +14,7 @@ const configurations: { [env: string]: Configuration } = {
       WFTM: ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
       FUSDT: ['0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', 6], // This is actually usdc on mainnet not fusdt
       'wFTM': ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
+      'WFTM': ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
       'Pint': ['0x4ef059d5a8ca02e894b7db73429f659a934407a4', 18],
       'Pint-WFTM LP': ['0x5536edacc0286ce0145405c0a2cfd33a7520cd8a',18],
       'KEG-WFTM LP': ['0xAEFf73b1E7d7Ee38D18eE295C44C0624f321fB9F',18],
