@@ -66,7 +66,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: 'Pint-WFTM LP',
     earnTokenName: 'KEG',
     finished: false,
-    multiplier: '2x',
+    multiplier: '10x',
     site: "https://trusting-torvalds-2a9975.netlify.app/",
     buyLink: 'https://spookyswap.finance/add/FTM/0x4ef059d5a8ca02e894b7db73429f659a934407a4',
     sort: 1,
