@@ -275,7 +275,7 @@ export class TombFinance {
         const rewardPerSecond = await poolContract.tombPerSecond();
         if (depositTokenName === 'Keg') {
           return rewardPerSecond.mul(7500).div(25000).div(24).mul(20);
-        } else if (depositTokenName === '2OMB') {
+        } else if (depositTokenName === 'Pint') {
           return rewardPerSecond.mul(5000).div(25000).div(24).mul(20);
         } else if (depositTokenName === 'BELUGA') {
           return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
@@ -283,9 +283,9 @@ export class TombFinance {
           return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
         } else if (depositTokenName === 'WFTM') {
           return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
-        } else if (depositTokenName === '2OMB-WFTM LP') {
+        } else if (depositTokenName === 'Pint-WFTM LP') {
           return rewardPerSecond.mul(6000).div(25000).div(24).mul(20);
-        } else if (depositTokenName === '2SHARES-WFTM LP') {
+        } else if (depositTokenName === 'KEG-WFTM LP') {
           return rewardPerSecond.mul(6000).div(25000).div(24).mul(20);
         } else if (depositTokenName === 'BLOOM') {
           return rewardPerSecond.mul(500).div(25000).div(24).mul(20);
@@ -303,7 +303,7 @@ export class TombFinance {
     const rewardPerSecond = await poolContract.tSharePerSecond();
     if (depositTokenName.startsWith('Pint')) {
       return rewardPerSecond.mul(35500).div(60000);
-    }  else if (depositTokenName.startsWith('Keg')) {
+    }  else if (depositTokenName.startsWith('KEG')) {
       return rewardPerSecond.mul(15000).div(60000);
     } else {
       return rewardPerSecond.mul(24000).div(60000);
@@ -329,11 +329,11 @@ export class TombFinance {
         tokenPrice = await this.getLPTokenPrice(token, this.TOMB, true, false);
       } else if (tokenName === 'Keg-WFTM LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.TSHARE, false, false);
-      } else if (tokenName === "2SHARES-WFTM LP") {
-        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xc54a1684fd1bef1f077a336e6be4bd9a3096a6ca", this.provider, "2SHARES"), false, true);
-      } else if (tokenName === "2OMB-WFTM LP") {
+      } else if (tokenName === "KEG-WFTM LP") {
+        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x5536edacc0286ce0145405c0a2cfd33a7520cd8a", this.provider, "2SHARES"), false, true);
+      } else if (tokenName === "Pint-WFTM LP") {
         console.log("getting the LP token price here")
-        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0x7a6e4e3cc2ac9924605dca4ba31d1831c84b44ae", this.provider, "2OMB"), true, true);
+        tokenPrice = await this.getLPTokenPrice(token, new ERC20("0xAEFf73b1E7d7Ee38D18eE295C44C0624f321fB9F", this.provider, "2OMB"), true, true);
         console.log("my token price:", tokenPrice)
       } else if (tokenName === 'BLOOM') {
         tokenPrice = await this.getTokenPriceFromSpiritswap(token);
