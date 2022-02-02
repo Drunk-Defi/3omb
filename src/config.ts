@@ -16,7 +16,7 @@ const configurations: { [env: string]: Configuration } = {
       TOMB: ['0x4ef059d5a8ca02e894b7db73429f659a934407a4', 18],
       TSHARE: ['0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca', 18],
       TBOND: ['0x809F582523B9dec455bE3a7611BaE3dFCa15B8F1', 18],
-      TOMBWFTM_LP:['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
+      TOMBWFTM_LP:['0x5536edacc0286ce0145405c0a2cfd33a7520cd8a', 18],
       'wFTM': ['0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18],
       'Pint': ['0x4ef059d5a8ca02e894b7db73429f659a934407a4', 18],
       'Pint-WFTM LP': ['0x5536edacc0286ce0145405c0a2cfd33a7520cd8a',18],
