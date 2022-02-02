@@ -130,7 +130,7 @@ const Masonry = () => {
             <Grid container justify="center">
               <Box mt={3} style={{ width: '525px' }}>
                 <Alert variant="transparent" severity="info">
-                  Staked PINTS can only be withdrawn after 1 epochs since deposit.
+                  Staked PINTS can only be withdrawn after 2 epochs since deposit.
                 </Alert>
               </Box>
             </Grid>
