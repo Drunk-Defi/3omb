@@ -62,7 +62,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     name: 'Earn Keg by staking Pint-WFTM LP',
     poolId: 0,
     sectionInUI: 2,
-    contract: 'Tomb2ombWftmLPRewardPool',
+    contract: 'TombFtmLPTShareRewardPool',
     depositTokenName: 'Pint-WFTM LP',
     earnTokenName: 'KEG',
     finished: false,
